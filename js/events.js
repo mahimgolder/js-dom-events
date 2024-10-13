@@ -2,7 +2,10 @@
 {/* <button onclick="document.body.style.backgroundColor = 'yellow'">Make Yellow</button> */}
 
 
-// *****Option--1:  Add onclick function
+// *****Option 2:  Add onclick function on the html element
+// IMPORTENT: ***********[We will use this sometimes]
+{/* <button onclick="makeRed()">Make Red</button> */}
+
 function makeRed(){
     document.body.style.backgroundColor = 'red';
 }
@@ -18,5 +21,27 @@ const purpleButton = document.getElementById('make-purple');
 purpleButton.onclick = function(){
     document.body.style.backgroundColor = 'purple';//sorasori function declar
 };
-
 console.log(purpleButton);
+
+
+// **option: 4
+const pinkButton = document.getElementById('make-pink');
+pinkButton.addEventListener('click', makePink);
+        
+function makePink(){
+    document.body.style.backgroundColor = 'pink'; 
+}
+
+// Option : 4 another
+const makeGreenButton = document.getElementById('make-green');
+makeGreenButton.addEventListener('click', function(){
+    document.body.style.backgroundColor = 'green';
+} );
+
+
+// Option: 4 Final***********[We will use this sometimes]
+// IMPORTENCE: ***********[We will use this sometimes]
+// document.getElementById('make-goldenrod').addEventListener ('click', function(){})
+document.getElementById('make-goldenrod').addEventListener('click', function(){
+    document.body.style.backgroundColor = 'goldenrod'
+})
