@@ -10,7 +10,17 @@
     <input id="delete-confirm" type="text" placeholder="Please type 'Delete'">
     <button id="btn-delete" disabled>Delete</button>
     <script>
-        document.getElementById('delete-confirm')
+        document.getElementById('delete-confirm').addEventListener('keyup',function(event){
+            const text = event.target.value;
+            const deleteButton = document.getElementById('btn-delete')
+            if(text === 'delete'){
+                deleteButton.removeAttribute('disabled')
+            }
+            else{
+                deleteButton.setAttribute('disabled', true);
+            }
+
+        })
         document.getElementById('btn-delete').addEventListener('click',function(){
             const secret = document.getElementById('secret-info');
             secret.style.display = 'none'
@@ -18,3 +28,28 @@
     </script>
 </body>
 </html>
+
+<!-- কোডের কাজ:
+keyup ইভেন্ট:
+যখন ব্যবহারকারী ইনপুট ফিল্ডে কোনো কী চাপা ছেড়ে দেয়, তখন keyup ইভেন্টটি ট্রিগার হয়। অর্থাৎ, ইনপুট ফিল্ডে টাইপ করার সময় প্রতিটি কী ছাড়ার পর ইভেন্টটি ঘটে।
+
+event.target.value:
+এখানে event.target.value দিয়ে সেই ইনপুট ফিল্ডের বর্তমান মান নেওয়া হচ্ছে, যেখানে ব্যবহারকারী টাইপ করছে। অর্থাৎ, ইনপুট ফিল্ডে যা টাইপ করা হচ্ছে, তা text ভ্যারিয়েবলে সঞ্চিত হচ্ছে।
+
+removeAttribute('disabled'):
+যদি ইনপুট ফিল্ডের মান delete হয়, তাহলে deleteButton বাটনটি সক্রিয় হবে, অর্থাৎ এটি ক্লিক করার উপযোগী হবে। এর জন্য disabled অ্যাট্রিবিউটটি সরিয়ে ফেলা হয়।
+
+setAttribute('disabled', true):
+যদি ইনপুট ফিল্ডের মান delete না হয়, তবে বাটনে disabled অ্যাট্রিবিউট যোগ করা হচ্ছে, যাতে বাটনটি নিষ্ক্রিয় থাকে এবং ক্লিক করা না যায়।
+
+উদাহরণ:
+ধরুন, এইচটিএমএল-এ আপনার একটি ইনপুট ফিল্ড এবং একটি ডিলিট বাটন আছে:
+
+html
+
+<input type="text" id="delete-confirm" placeholder="Type 'delete' to enable">
+<button id="btn-delete" disabled>Delete</button>
+এখন, আপনি ইনপুট ফিল্ডে delete টাইপ করলে বাটনটি সক্রিয় হয়ে যাবে, আর অন্য কিছু টাইপ করলে বাটনটি নিষ্ক্রিয় থাকবে।
+
+সংক্ষেপে:
+এই কোডটি এমনভাবে কাজ করে যে, ব্যবহারকারী ইনপুট ফিল্ডে delete টাইপ করলে ডিলিট বাটনটি সক্রিয় হয়ে যায় এবং অন্য কোনো কিছু টাইপ করলে আবার নিষ্ক্রিয় হয়ে যায়। -->
