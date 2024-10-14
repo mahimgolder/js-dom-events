@@ -7,8 +7,37 @@
 </head>
 <body>
     <h1>Please Add your comment</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam placeat eum molestiae officia quasi sapiente consequatur, minima excepturi incidunt laudantium esse eaque reiciendis. Sunt aliquid vero, quasi exercitationem quidem vel!</p>
-    <p>Eveniet soluta harum labore magni. Impedit, provident deserunt molestiae, vitae labore consectetur voluptas sapiente, sed officia odit nulla laboriosam iusto facere magnam laborum. Facere, atque. Quia, provident. Pariatur, iste cum.</p>
-    <p>Repudiandae inventore fugiat ipsum nobis consequuntur expedita perferendis, aspernatur fugit sapiente quas rerum delectus! Nobis consectetur sequi dolores nostrum officia! Rerum voluptas laboriosam animi sunt vel maiores fugiat. Optio, non.</p>
+    <div id="comment-container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat sequi atque quas necessitatibus expedita similique quia, minus voluptate saepe molestias asperiores eligendi temporibus! Officia rerum porro praesentium quis saepe perferendis ipsum dolorum? Suscipit neque nulla doloribus voluptate veniam eius, itaque obcaecati beatae delectus adipisci corrupti sequi illo velit. Neque, optio.</p>
+        <p>Rerum, omnis vero assumenda vel ut aliquam quas error libero aliquid itaque corporis doloremque magni ipsum esse labore pariatur accusamus atque earum dolores maiores ea architecto veniam! Nam ullam beatae corrupti maxime! Ullam aspernatur ab quae placeat. Dignissimos non quaerat error aperiam quo, nihil fuga, maxime animi, impedit deserunt libero.</p>
+        <p>Maxime voluptatum, sint, eveniet amet modi debitis itaque expedita sapiente esse natus dolore asperiores repudiandae et distinctio enim aliquam recusandae ullam neque eos ipsa unde necessitatibus! Voluptatibus est quos tempora veniam suscipit asperiores quia autem eum expedita. Hic, officia. Odit molestias illum corrupti libero quod quae suscipit vitae, sit minus.</p>
+     
+    </div>
+    <div>
+        <textarea name="" id="new-comment" cols="60" rows="6"></textarea>
+    </div>
+    <button id="btn-post">Post</button>
+
+    <script>
+        // step-1: add event listener to the post button
+        document.getElementById('btn-post').addEventListener('click', function(){
+            // step-2: get the comment inside the text area
+            const commentBox = document.getElementById('new-comment');
+            const newComment = commentBox.value;
+            
+            // step-3: set the comment   inside the comment container
+            // 1. get the comment container
+            // 2. create the new element (p tag)
+            // 3. set the text of the comment as innerText of the p tag
+            // 4. add the p tag using appendChild 
+            const commentContainer = document.getElementById('comment-container')
+            const p = document.createElement('p');
+            p.innerText = newComment;
+            commentContainer.appendChild(p);
+
+            // step-4: clear the text area
+            commentBox.value = '';
+        })
+    </script>
 </body>
 </html>
